@@ -1,0 +1,10 @@
+train_data:
+  name: mnist
+  data_dir: /scratch/gilbreth/ahmedb/data/mnist_train
+  train: True
+  download: True
+test_data:
+  name: mnist
+  data_dir: /scratch/gilbreth/ahmedb/data/mnist_test
+  train: False
+  download: True
