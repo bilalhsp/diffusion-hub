@@ -1,0 +1,10 @@
+# Small — ~0.65M params, 
+name: basic
+config:
+  in_channels: 508 # 
+  emb_dim: 256
+  out_channels: 80
+  fs_spec: 86.133
+  fs_eeg: 200
+
+  bias: False # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster

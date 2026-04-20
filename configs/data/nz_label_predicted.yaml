@@ -1,0 +1,22 @@
+train_data:
+  name: nz_label_predicted
+  dataset_config:
+    h5_path: /scratch/gilbreth/ahmedb/data/nz/train_set.h5   # on phocion, NOT on Gilbreth
+    segment_len: 172
+val_data:
+  name: nz_label_predicted
+  dataset_config:
+    h5_path: /scratch/gilbreth/ahmedb/data/nz/val_set.h5      # on phocion, NOT on Gilbreth
+    segment_len: 172
+test_data:
+  name: nz_label_predicted
+  dataset_config:
+    h5_path: /scratch/gilbreth/ahmedb/data/nz/test_set.h5      # on phocion, NOT on Gilbreth
+    segment_len: 172
+
+
+# dummy paths for now, since the data is on phocion, not on Gilbreth
+# /scratch/gilbreth/ahmedb/data/nz
+# Actual paths on phocion: 
+# /srv/share/NZ0_spectrograms
+

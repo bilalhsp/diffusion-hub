@@ -1,0 +1,8 @@
+
+name: nz_unlabel
+dataset_config:
+  root_dir: /depot/jgmakin/data/NZ0000/NWB/    
+  data_type: both
+  duration: 2
+  debug_mode: True  
+  # split: train

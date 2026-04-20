@@ -1,3 +1,0 @@
-defaults:
-  - data: mnist
-  - task: generation

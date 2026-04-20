@@ -1,0 +1,7 @@
+name: ljspeech
+dataset_config:
+  cache_dir: /scratch/gilbreth/ahmedb/cache/hf_cache/ljspeech
+  data_tag: keithito/lj_speech
+  val_metadata: configs/data/ljspeech/ljspeech_validation.txt
+  max_duration: 2   # seconds
+  sampling_rate: 22050

@@ -1,0 +1,23 @@
+train_data:
+  name: nz_label
+  dataset_config:
+    root_dir: /scratch/gilbreth/ahmedb/data/nz/labelled/processed_blocks/   
+    block_ids: [1, 4, 5, 6, 7, 8, 9]   # 2 is ommited, 3 reserved for val/test
+    trial_duration: 4
+    mode: train
+
+val_data:
+  name: nz_label
+  dataset_config:
+    root_dir: /scratch/gilbreth/ahmedb/data/nz/labelled/processed_blocks/   
+    block_ids: [3]
+    trial_duration: 4
+    mode: val
+
+test_data:
+  name: nz_label
+  dataset_config:
+    root_dir: /scratch/gilbreth/ahmedb/data/nz/labelled/processed_blocks/   
+    block_ids: [3]
+    trial_duration: 4
+    mode: test

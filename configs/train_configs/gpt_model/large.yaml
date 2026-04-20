@@ -1,0 +1,12 @@
+# Training data has 100M tokens...
+# Large —  ~20M params, needs strong regularizationmodel:
+name: large
+config:
+  block_size: 2000       # 10 second long 
+  window_size: 500       # 2.5 second long 
+  input_dim: 508 # 
+  n_layer: 6
+  n_head: 8
+  n_embd: 512
+  dropout: 0.25
+  bias: False 

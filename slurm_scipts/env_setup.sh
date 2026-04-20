@@ -12,6 +12,10 @@ nvidia-smi
 module purge
 module load external
 module load conda 
-conda activate DAPS
-# 
+conda activate /depot/jgmakin/data/bilal/env/diffusion
+# conda activate /depot/jgmakin/data/bilal/env/speech
+
+
+# conda activate DAPS
+# # 
 # conda activate /home/ahmedb/.conda/envs/cent7/2020.11-py38/wav2letter

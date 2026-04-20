@@ -1,0 +1,66 @@
+
+defaults:
+  - gpt_model: base
+
+# single source of truth
+data_type: both   # [hg, lfc, both]
+data_size: 140
+seed: 42
+
+## ................................... Data configs...............................................
+data:
+  train_data:
+    name: nz_unlabel
+    dataset_config:
+      root_dir: /depot/jgmakin/data/NZ0000/NWB/ 
+      debug_mode: False   
+      data_type: ${data_type}         # [hg, lfc, both]
+      duration: 20            # duration of original trials
+      trial_duration: 10      # slices of trials used for training
+      is_train: True  
+
+  val_data:
+    name: nz_unlabel
+    dataset_config:
+      root_dir: /depot/jgmakin/data/NZ0000/NWB/  
+      debug_mode: False  
+      data_type: ${data_type}         # [hg, lfc, both]
+      duration: 10            # duration of original trials
+      trial_duration: null      # slices of trials used for training
+      is_train: False 
+
+trainer:
+  trainer_config:
+    output_dir: /scratch/gilbreth/ahmedb/trained_models/gpt-mse
+    exp_name: gpt-mse-${data_type}-${gpt_model.name}-${data_size}
+    lr: 3e-4
+    min_lr: 3e-5
+    warmup_steps: 2000       
+    lr_decay_steps: 90000       # 200 epochs (1 epoch ~= 2500 steps)
+    weight_decay: 0.1            # AdamW, standard for transformers
+    beta1: 0.9
+    beta2: 0.95                  # GPT-3 used 0.95, not default 0.999
+    grad_clip: 1.0
+    distributed: True
+
+  train_method:
+    # num_epochs: 1             
+    max_steps: 100000          # max_steps takes precedence when both provided
+    batch_size: 128               # Total batch size
+    # batch_size_per_device: 8    # batch size per gpu
+    resume_training: False
+    # start_from_chkpt: None  
+    chkpt_save_steps: 5000
+    train_log_steps: 500
+    eval_log_steps: 1000
+
+# gpt-mse
+# gpt-mse-{channels}-{model_size}-{dataset_size}
+#   channels: [lfc, hg, both]
+#   model_size: [base, medium, large]
+#   dataset_size: [35hr, 70hr, 140hr]
+# e.g. 
+#   gpt-mse-hg-base-140hr  : hg channels only, base model trained on 140hr training data
+#   gpt-mse-lfc-base-140hr
+#   gpt-mse-both-base-140hr
+#   gpt-mse-both-base-140hr

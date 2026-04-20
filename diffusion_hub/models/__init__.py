@@ -1,0 +1,1 @@
+from .vocoder import load_hifigan

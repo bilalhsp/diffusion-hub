@@ -17,9 +17,9 @@ setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        'numpy', 'tqdm','torch>=2.0.1',
+        'numpy', 'tqdm','torch>=2.0.1', 'datasets', 'transformers', 'librosa',
+        'tensorboard', 'matplotlib', 'wandb', 'hydra-core', 'omegaconf',
+        'pynwb==2.9.0', 
     ],
     python_required='>=3.7',
 )
-
-

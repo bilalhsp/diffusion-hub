@@ -1,0 +1,34 @@
+name: diffusion
+
+channels:
+  - pytorch
+  - conda-forge
+
+dependencies:
+  - python=3.8
+  - ipykernel
+  - torchvision
+  - numpy=1.24
+  - matplotlib=3.7
+  - pip
+
+  - pip:
+    - --extra-index-url https://download.pytorch.org/whl/cu124 
+    - torch
+    - torchaudio
+    - torchvision
+    - omegaconf==2.3.0
+    - pillow==10.3.0
+    - piq==0.8.0
+    - PyYAML==6.0
+    - scipy==1.10.1
+    - tqdm==4.64.1
+    - wandb==0.17.0
+    - hydra-core
+    - huggingface-hub==0.29.3
+    - transformers==4.46.3
+    - datasets
+    - einops
+    - librosa==0.11
+    - tensorboard
+    - dotenv

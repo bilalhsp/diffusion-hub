@@ -1,0 +1,12 @@
+# Training data has 100M tokens...
+# Small — ~3.67M params, Chinchilla-close
+name: small
+config:
+  block_size: 2000       # 10 second long 
+  window_size: 500       # 2.5 second long 
+  input_dim: 508 # 
+  n_layer: 4
+  n_head: 4
+  n_embd: 256
+  dropout: 0.1
+  bias: False # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster

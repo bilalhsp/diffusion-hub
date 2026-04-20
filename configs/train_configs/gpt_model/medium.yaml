@@ -1,0 +1,12 @@
+# Training data has 100M tokens...
+# medium — ~11.9M params
+name: medium
+config:
+  block_size: 2000       # 10 second long 
+  window_size: 500       # 2.5 second long 
+  input_dim: 508 # 
+  n_layer: 6
+  n_head: 6
+  n_embd: 384
+  dropout: 0.2
+  bias: False 

@@ -1,0 +1,60 @@
+defaults:
+  - spect_model: basic
+
+# single source of truth
+data_type: both   # [hg, lfc, both]
+data_size: 140
+seed: 42
+
+## ................................... Data configs...............................................
+data:
+  train_data:
+    name: nz_label
+    dataset_config:
+      root_dir: /scratch/gilbreth/ahmedb/data/nz/labelled/processed_blocks/   
+      block_ids: [1, 4, 5, 6, 7, 8, 9]   # 2 is ommited, 3 reserved for val/test
+      trial_duration: 4
+      mode: train
+
+  val_data:
+    name: nz_label
+    dataset_config:
+      root_dir: /scratch/gilbreth/ahmedb/data/nz/labelled/processed_blocks/   
+      block_ids: [3]
+      trial_duration: 4
+      mode: val
+
+  test_data:
+    name: nz_label
+    dataset_config:
+      root_dir: /scratch/gilbreth/ahmedb/data/nz/labelled/processed_blocks/   
+      block_ids: [3]
+      trial_duration: 4
+      mode: test
+
+
+trainer:
+  trainer_config:
+    output_dir: /scratch/gilbreth/ahmedb/trained_models/eeg_to_speech/
+    exp_name: eeg-to-speech-basic-test
+    lr: 3e-4
+    min_lr: 3e-5
+    warmup_steps: 500       
+    lr_decay_steps: 4000       # 200 epochs (1 epoch ~= 2500 steps)
+    weight_decay: 0.1            # AdamW, standard for transformers
+    beta1: 0.9
+    beta2: 0.95                  # GPT-3 used 0.95, not default 0.999
+    grad_clip: 1.0
+    distributed: False
+
+  train_method:
+    # num_epochs: 1             
+    max_steps: 5000          # max_steps takes precedence when both provided
+    batch_size: 32               # Total batch size
+    # batch_size_per_device: 8    # batch size per gpu
+    resume_training: False
+    # start_from_chkpt: None  
+    chkpt_save_steps: 5000
+    train_log_steps: 200
+    eval_log_steps: 500
+
