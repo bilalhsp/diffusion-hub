@@ -150,3 +150,6 @@ wandb/
 
 # slurm .out files
 *.out
+
+# codex specific docs
+docs/

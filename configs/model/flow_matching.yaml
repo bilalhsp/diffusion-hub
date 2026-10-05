@@ -1,0 +1,13 @@
+name: dit
+configs:
+  res: 32
+  n_channels: 
+  patch_size: 4
+  dim: 384
+  n_blocks: 8
+  n_heads: 6
+  time_emb_dim: 256
+  time_emb_scale: 1000.0     # for 0 < t < 1 as noise condition input
+  n_classes: None
+  attn_dropout_p: 0.0
+  bias: true                # default: true used by the DiT paper
